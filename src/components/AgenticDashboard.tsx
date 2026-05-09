@@ -12,13 +12,11 @@ const QUICK_EXAMPLES = [
 ];
 
 const NAV_STEPS = [
-  { id: 1, label: 'Intent' },
-  { id: 2, label: 'Discovery' },
-  { id: 3, label: 'Risk Score' },
+  { id: 1, label: 'Intent Analysis' },
+  { id: 2, label: 'Merchant Risk Model' },
   { id: 4, label: 'Selection' },
-  { id: 5, label: 'Initiate Intent' },
-  { id: 6, label: 'Payment Token' },
-  { id: 7, label: 'Confirm' }
+  { id: 6, label: 'VIC & AMIR Checks' },
+  { id: 8, label: 'Success' }
 ];
 
 export default function AgenticDashboard() {
@@ -335,6 +333,22 @@ export default function AgenticDashboard() {
             </div>
           ) : (
             <div className="max-w-4xl mx-auto pb-32 relative">
+              <div className="flex items-center justify-between mb-10 pl-16">
+                <div>
+                  <h2 className="text-2xl font-black text-slate-800 tracking-tight flex items-center gap-3">
+                    Active Procurement
+                    <div className="flex gap-2">
+                       <span className="px-2 py-0.5 bg-blue-50 text-blue-700 rounded-lg text-[9px] font-bold tracking-widest uppercase border border-blue-200/50">V4 Gateway</span>
+                       <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-lg text-[9px] font-bold tracking-widest uppercase border border-emerald-200/50 flex items-center gap-1.5 shadow-sm">
+                         <ShieldCheck className="w-3 h-3" />
+                         3-Layer Shield Active
+                       </span>
+                    </div>
+                  </h2>
+                  <p className="text-slate-500 text-xs font-medium mt-1">Autonomous agent performing real-time risk evaluation</p>
+                </div>
+              </div>
+
               <div className="absolute left-8 top-10 bottom-10 w-0.5 bg-slate-200/80 rounded-full" />
               <div className="space-y-8 relative z-10">
               
@@ -373,7 +387,7 @@ export default function AgenticDashboard() {
                   <div className="absolute left-[24px] top-6 w-4 h-4 bg-white rounded-full border-[3px] border-blue-500 shadow-[0_0_0_4px_#f8fafc] group-hover:scale-125 transition-transform" />
                   <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
                     <div className="px-6 py-4 border-b border-slate-100/60 flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-slate-800">Merchant Discovery & Risk Assessment</h3>
+                      <h3 className="text-sm font-bold text-slate-800">Shield Level 1: Merchant Discovery & Risk</h3>
                       {activeStep > 3 && <span className="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[9px] font-bold tracking-wider uppercase">Verified</span>}
                     </div>
                     
@@ -513,7 +527,7 @@ export default function AgenticDashboard() {
                   <div className="absolute left-[24px] top-6 w-4 h-4 bg-white rounded-full border-[3px] border-blue-500 shadow-[0_0_0_4px_#f8fafc] group-hover:scale-125 transition-transform" />
                   <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
                     <div className="px-6 py-4 border-b border-slate-100/60 flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-slate-800">Dynamic Payment Tokenization</h3>
+                      <h3 className="text-sm font-bold text-slate-800">Shield Level 2: Dynamic Payment Tokenization</h3>
                       {activeStep > 5 && <span className="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[9px] font-bold tracking-wider uppercase">Verified</span>}
                     </div>
                   <div className="p-6 bg-slate-50/30">
@@ -566,7 +580,7 @@ export default function AgenticDashboard() {
                   <div className="absolute left-[24px] top-6 w-4 h-4 bg-white rounded-full border-[3px] border-emerald-500 shadow-[0_0_0_4px_#f8fafc] group-hover:scale-125 transition-transform" />
                   <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
                     <div className="px-6 py-4 border-b border-slate-100/60 flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-slate-800">Final Verification & Processing</h3>
+                       <h3 className="text-sm font-bold text-slate-800">Final Security Verification (VIC & AMIR)</h3>
                       {activeStep >= 7 && <span className="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[9px] font-bold tracking-wider uppercase">Verified</span>}
                     </div>
                   
@@ -574,7 +588,7 @@ export default function AgenticDashboard() {
                     {/* AMIR Assessment */}
                     <div className="mb-6">
                       <div className="flex items-center gap-3 mb-4">
-                        <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Agent Misalignment Risk Score</h4>
+                        <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Shield Level 3: Agent Misalignment Risk</h4>
                         <span className={cn("px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider", isMisaligned ? "bg-red-100 text-red-800" : "bg-emerald-100 text-emerald-800")}>Model: AMIR</span>
                       </div>
                       

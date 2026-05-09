@@ -201,18 +201,55 @@ export function SystemPipeline({ activeStep, parsedProduct, parsedCategory, pars
               </h3>
 
               <div className="grid grid-cols-2 gap-2 mb-2">
-                 <div className="bg-white border border-slate-200/60 shadow-sm rounded-xl p-3">
+                 <div className="bg-white border border-slate-200/60 shadow-sm rounded-xl p-3 hover:border-blue-500/30 transition-colors">
                     <div className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-bold">Agents Secured</div>
                     <div className="text-lg font-mono font-black text-slate-800">
                       {(metrics.agents / 1000000).toFixed(2)}M+
                     </div>
                  </div>
-                 <div className="bg-white border border-slate-200/60 shadow-sm rounded-xl p-3">
+                 <div className="bg-white border border-slate-200/60 shadow-sm rounded-xl p-3 hover:border-blue-500/30 transition-colors">
                     <div className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-bold">Avg Alignment</div>
                     <div className="text-lg font-mono font-black text-emerald-600">
                        {metrics.alignment.toFixed(1)}%
                     </div>
                  </div>
+              </div>
+              
+              <div className="bg-slate-900 rounded-xl p-3 mb-4 shadow-inner border border-slate-800">
+                <div className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-2 flex items-center justify-between">
+                  <span>Visa Security Stack</span>
+                  <div className="flex gap-1">
+                    {[1, 2, 3].map(i => (
+                      <div key={i} className={`w-1.5 h-1.5 rounded-full ${activeStep >= (i * 2) ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]' : 'bg-slate-700'}`} />
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className={`w-2 h-2 rounded-full ${activeStep >= 2 ? 'bg-emerald-500 animate-pulse' : 'bg-slate-700'}`} />
+                      <span className={`text-[10px] font-bold ${activeStep >= 2 ? 'text-slate-200' : 'text-slate-500'}`}>Merchant Risk Model</span>
+                    </div>
+                    {activeStep >= 3 && <span className="text-[8px] font-black text-emerald-400 uppercase">Passed</span>}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className={`w-2 h-2 rounded-full ${activeStep >= 4 ? 'bg-blue-500 animate-pulse' : 'bg-slate-700'}`} />
+                      <span className={`text-[10px] font-bold ${activeStep >= 4 ? 'text-slate-200' : 'text-slate-500'}`}>VIC Fraud Engine</span>
+                    </div>
+                    {activeStep >= 5 && <span className="text-[8px] font-black text-blue-400 uppercase">Secured</span>}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className={`w-2 h-2 rounded-full ${activeStep >= 6 ? (activeStep >= 6 && activeStep < 7 && activeStep !== 0 ? 'bg-red-400 animate-ping' : 'bg-emerald-500 animate-pulse') : 'bg-slate-700'}`} />
+                      <span className={`text-[10px] font-bold ${activeStep >= 6 ? 'text-slate-200' : 'text-slate-500'}`}>AMIR Alignment Score</span>
+                    </div>
+                    {activeStep >= 7 && <span className="text-[8px] font-black text-emerald-400 uppercase">Validated</span>}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 mb-2">
                  <div className="bg-white border border-slate-200/60 shadow-sm rounded-xl p-3">
                     <div className="text-[9px] text-slate-400 uppercase tracking-widest mb-1 font-bold">Active Sessions</div>
                     <div className="text-lg font-mono font-bold text-slate-800 flex items-center gap-1.5">
