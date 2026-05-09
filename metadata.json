@@ -1,0 +1,6 @@
+{
+  "name": "VIC Risk Models Showcase",
+  "description": "Simulation of the Visa Intelligent Commerce (VIC) API flows featuring 4 specialized risk models for agentic commerce.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
